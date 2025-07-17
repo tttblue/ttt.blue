@@ -1,2 +1,0 @@
-# ttt.blue
-the website
