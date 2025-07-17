@@ -1,0 +1,56 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "poetry"
+    label: "Poetry"
+    folder: "content/poetry"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "PDF Upload", name: "file", widget: "file" }
+
+  - name: "paintings"
+    label: "Paintings"
+    folder: "content/paintings"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+
+  - name: "furniture"
+    label: "Furniture"
+    folder: "content/furniture"
+    create: true
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+
+  - name: "fabrics"
+    label: "Fabrics"
+    folder: "content/fabrics"
+    create: true
+    fields:
+      - { label: "Pattern Name", name: "name", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+
+  - name: "music"
+    label: "Music"
+    folder: "content/music"
+    create: true
+    fields:
+      - { label: "Track Name", name: "name", widget: "string" }
+      - { label: "File Upload", name: "file", widget: "file" }
+      - { label: "Streaming Link", name: "link", widget: "string" }
+
+  - name: "videos"
+    label: "Videos"
+    folder: "content/videos"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "YouTube Link", name: "youtube", widget: "string" }
