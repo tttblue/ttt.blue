@@ -1,11 +1,152 @@
+📁 File: `index.html`
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ttt — Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      background-color: #ffffff;
+      font-family: sans-serif;
+      color: #000;
+    }
+    a {
+      color: #0033cc;
+      text-decoration: none;
+    }
+    header, section {
+      margin-bottom: 3rem;
+    }
+    h1, h2 {
+      color: #002fa7; /* Yves Klein Blue */
+    }
+    nav a {
+      margin-right: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ttt</h1>
+    <nav>
+      <a href="#poetry">Poetry</a>
+      <a href="#paintings">Paintings</a>
+      <a href="#furniture">Furniture</a>
+      <a href="#fabrics">Fabrics</a>
+      <a href="#music">Music</a>
+      <a href="#videos">Videos</a>
+      <a href="/admin">Admin</a>
+    </nav>
+  </header>
 
+  <section id="poetry">
+    <h2>Poetry</h2>
+    <p>PDF books and previews will go here.</p>
+  </section>
+
+  <section id="paintings">
+    <h2>Paintings</h2>
+    <p>Upload scanned artwork here.</p>
+  </section>
+
+  <section id="furniture">
+    <h2>Furniture</h2>
+    <p>Photos and purchase info for chairs, tables, etc.</p>
+  </section>
+
+  <section id="fabrics">
+    <h2>Fabrics</h2>
+    <p>Patterns and dyed materials.</p>
+  </section>
+
+  <section id="music">
+    <h2>Music</h2>
+    <p>Links to DSPs and direct-downloads of tracks.</p>
+  </section>
+
+  <section id="videos">
+    <h2>Videos</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+  </section>
+</body>
+</html>
+```
+
+📁 File: `admin/index.html`
+```html
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>Content Manager</title>
-    <script src="https://unpkg.com/netlify-cms@2.10.192/dist/netlify-cms.js"></script>
+    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
   </head>
   <body>
   </body>
 </html>
+```
+
+📁 File: `admin/config.yml`
+```yaml
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "poetry"
+    label: "Poetry"
+    folder: "content/poetry"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "PDF Upload", name: "file", widget: "file" }
+
+  - name: "paintings"
+    label: "Paintings"
+    folder: "content/paintings"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+
+  - name: "furniture"
+    label: "Furniture"
+    folder: "content/furniture"
+    create: true
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+
+  - name: "fabrics"
+    label: "Fabrics"
+    folder: "content/fabrics"
+    create: true
+    fields:
+      - { label: "Pattern Name", name: "name", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+
+  - name: "music"
+    label: "Music"
+    folder: "content/music"
+    create: true
+    fields:
+      - { label: "Track Name", name: "name", widget: "string" }
+      - { label: "File Upload", name: "file", widget: "file" }
+      - { label: "Streaming Link", name: "link", widget: "string" }
+
+  - name: "videos"
+    label: "Videos"
+    folder: "content/videos"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "YouTube Link", name: "youtube", widget: "string" }
+```
+
